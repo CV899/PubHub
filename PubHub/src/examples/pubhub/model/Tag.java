@@ -19,5 +19,12 @@ public class Tag {
 	public String getTagName() {
 		return tagName;
 	}
+	
+	@Override
+	public String toString() {
+		
+		return "Tag name:\t" + tagName;
+		
+	}
 }
 
