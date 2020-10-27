@@ -10,6 +10,6 @@ public interface BookTagDAO {
 	public boolean addTag(Book book, Tag tag);
 	public boolean removeTag(Book book, Tag tag);
 	
-	public List<String> getTags(Tag tag);
+	public List<Tag> getTagsForBook(Book book);
 	public List<Book> getBooksWithTag(Tag tag);
 }
