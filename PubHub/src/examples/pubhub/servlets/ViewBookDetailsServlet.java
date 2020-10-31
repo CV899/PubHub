@@ -1,5 +1,6 @@
 package examples.pubhub.servlets;
 
+import java.util.List;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import examples.pubhub.dao.BookDAO;
+import examples.pubhub.dao.BookTagDAO;
 import examples.pubhub.model.Book;
+import examples.pubhub.model.Tag;
 import examples.pubhub.utilities.DAOUtilities;
 
 /**
@@ -32,9 +35,13 @@ public class ViewBookDetailsServlet extends HttpServlet {
 		// Actually redirect the user.
 		String isbn13 = request.getParameter("isbn13");
 		
-		BookDAO dao = DAOUtilities.getBookDAO();
-		Book book = dao.getBookByISBN(isbn13);
+		BookDAO bookDAO = DAOUtilities.getBookDAO();
+		Book book = bookDAO.getBookByISBN(isbn13);
+		// TODO: display the book tags in bookDetails.jsp
+		BookTagDAO tagDAO = DAOUtilities.getBookTagDAO();
+		List<Tag> tags = tagDAO.getTagsForBook(book);
 		
+		request.setAttribute("tags", tags);
 		request.setAttribute("book", book);
 		
 		// We can use a forward here, because if a user wants to refresh their browser on this page,
