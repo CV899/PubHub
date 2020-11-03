@@ -16,7 +16,7 @@ import examples.pubhub.utilities.DAOUtilities;
 /**
  * Servlet implementation class AddTagServlet
  */
-@WebServlet("/AddTagServlet")
+@WebServlet("/AddTag")
 public class AddTagServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -30,7 +30,7 @@ public class AddTagServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		boolean isSuccess = false;
 		String isbn13 = request.getParameter("isbn13");
-		String tag = request.getParameter("tag");
+		String tag = request.getParameter("newTag");
 		BookDAO bookDAO = DAOUtilities.getBookDAO();
 		Book book = bookDAO.getBookByISBN(isbn13);
 		BookTagDAO tagDAO = DAOUtilities.getBookTagDAO();

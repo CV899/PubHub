@@ -23,7 +23,7 @@ public class Tag {
 	@Override
 	public String toString() {
 		
-		return "Tag name:\t" + tagName;
+		return getTagName();
 		
 	}
 }

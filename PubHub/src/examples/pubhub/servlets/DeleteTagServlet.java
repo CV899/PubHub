@@ -35,7 +35,7 @@ public class DeleteTagServlet extends HttpServlet {
 		BookDAO bookDAO = DAOUtilities.getBookDAO();
 		Book book = bookDAO.getBookByISBN(isbn13);
 		BookTagDAO tagDAO = DAOUtilities.getBookTagDAO();
-		Tag bookTag = new Tag(tag);
+		Tag bookTag = new Tag(tag );
 		
 		isSuccess = tagDAO.removeTag(book, bookTag);
 		

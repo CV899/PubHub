@@ -49,7 +49,7 @@ public class BookTagDAOImpl implements BookTagDAO {
 		try {
 			
 			connection = DAOUtilities.getConnection();
-			String sql = "DELETE book_tags WHERE isbn_13=? AND tag_name=?";
+			String sql = "DELETE FROM book_tags WHERE isbn_13=? AND tag_name=?";
 			stmt = connection.prepareStatement(sql);
 			
 			stmt.setString(1, book.getIsbn13());

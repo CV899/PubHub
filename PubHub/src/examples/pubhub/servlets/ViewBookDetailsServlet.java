@@ -37,12 +37,12 @@ public class ViewBookDetailsServlet extends HttpServlet {
 		
 		BookDAO bookDAO = DAOUtilities.getBookDAO();
 		Book book = bookDAO.getBookByISBN(isbn13);
-		// TODO: display the book tags in bookDetails.jsp
+		
 		BookTagDAO tagDAO = DAOUtilities.getBookTagDAO();
 		List<Tag> tags = tagDAO.getTagsForBook(book);
-		
 		request.setAttribute("tags", tags);
 		request.setAttribute("book", book);
+		
 		
 		// We can use a forward here, because if a user wants to refresh their browser on this page,
 		// it will just show them the most recent details for their book. There's no risk of data
