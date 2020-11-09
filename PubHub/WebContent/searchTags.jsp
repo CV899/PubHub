@@ -1,14 +1,19 @@
 	<!-- Header -->
 	<jsp:include page="header.jsp" />
 	
-	<!-- JSTL includes -->
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> 
+
+<style type="text/css"> 
 	
-<!-- 	Just some stuff you need -->
+	
+</style> 	
+
+	
 	<header>
-	  <div class="container">
+	
+	<div class="container">
 	  
 	<c:choose>
 	<c:when test="${not empty message }">
@@ -20,12 +25,25 @@
 	</c:when>
 	</c:choose>
 	
-		<h1>PUBHUB <small>Book Publishing</small></h1>
-		<hr class="book-primary">
-		
-		<a href="SearchTag"" class="btn btn-primary">Search by Tag</a>
-
-		<table class="table table-striped table-hover table-responsive pubhub-datatable">
+	<h1>PUBHUB <small>Tag Search</small></h1>
+	<hr class="book-primary">
+	
+	<form class="form-inline" action="SearchTag" method="post">
+		<div class="form-group">
+			<input type="text" class="form-control" name="tag" placeholder="Search for a tag..." required>
+		</div>
+		<input type="hidden" name="tag" value="${tag }">
+		<button type="submit" class="btn btn-info">Search</button>
+	</form>
+	
+	</div>
+	
+	<div class="container" style="padding-top:5%">
+	
+	<c:choose>
+	<c:when test="${not empty books }">
+	
+	<table class="table table-striped table-hover table-responsive pubhub-datatable">
 	
 			<thead>
 				<tr>
@@ -59,9 +77,11 @@
 				</c:forEach>
 			</tbody>
 		</table>
-
-	  </div>
+		</c:when>
+	</c:choose>
+	<c:remove var="books" />
+	</div>
 	</header>
-
+	
 	<!-- Footer -->
 	<jsp:include page="footer.jsp" />

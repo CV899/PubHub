@@ -21,18 +21,18 @@ public class TestTagDAO {
 		byte[] content = {2, 4, 5};
 		LocalDate date = LocalDate.now();
 		
-		Book book = new Book("1111111111113", "Test Book", "Dr. Test", content, date);
+		//Book book = new Book("1111111111113", "Test Book", "Dr. Test", content, date);
 		
-		bookDAO.addBook(book);
+		//bookDAO.addBook(book);
 		
 		Tag tag = new Tag("fiction");
 		
-		tagDAO.addTag(book, tag);
-		
-		List<Book> tags = tagDAO.getBooksWithTag(tag);
+		//tagDAO.addTag(book, tag);
+		Book book = bookDAO.getBookByISBN("1111111111111");
+		List<Tag> tags = tagDAO.getTagsForBook(book);
 		
 		for(int i = 0; i < tags.size(); i++) {
-			Book b = tags.get(i);
+			Tag b = tags.get(i);
 			System.out.println(b);
 		}
 		
