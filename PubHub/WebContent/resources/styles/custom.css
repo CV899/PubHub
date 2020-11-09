@@ -29,10 +29,6 @@ body {
 	text-align: center;
 }
 
-ul li button {
-	float: left;
-}
-
 /* To get Bootstrap's Nav Dropdown to expand on hover */
 /* .dropdown:hover .dropdown-menu { */
 /* 	display: block; */

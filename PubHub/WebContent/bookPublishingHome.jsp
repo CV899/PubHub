@@ -22,11 +22,8 @@
 	
 		<h1>PUBHUB <small>Book Publishing</small></h1>
 		<hr class="book-primary">
-		
-		<a href="SearchTag"" class="btn btn-primary">Search by Tag</a>
 
 		<table class="table table-striped table-hover table-responsive pubhub-datatable">
-	
 			<thead>
 				<tr>
 					<td>ISBN-13:</td>
